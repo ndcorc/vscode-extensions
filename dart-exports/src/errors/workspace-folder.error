@@ -1,0 +1,7 @@
+export class WorkspaceFolderError extends Error {
+  constructor(message = "Error gettings workspace root folder") {
+    super(message);
+
+    this.name = "WorkspaceFolderError";
+  }
+}

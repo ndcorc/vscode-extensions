@@ -1,0 +1,18 @@
+class IndexExistsError extends Error {
+  constructor(message = "index file already exists") {
+    super(message);
+    this.name = "IndexExistsError";
+  }
+}
+
+class IndexDoesNotExistError extends Error {
+  constructor(message = "index file doesn't exists") {
+    super(message);
+    this.name = "IndexDoesNotExistError";
+  }
+}
+
+module.exports = {
+  IndexExistsError,
+  IndexDoesNotExistError,
+};

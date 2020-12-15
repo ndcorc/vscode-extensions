@@ -1,0 +1,76 @@
+{
+  "name": "dart-exports",
+  "displayName": "Dart Exports",
+  "publisher": "nolancorcoran",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ndc466/dart-exports"
+  },
+  "icon": "images/export-icon.jpg",
+  "description": "Generates and maintains an index.dart file that listens to a single directory path and exports all of the current Dart files within that path.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.49.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:dart-exports.exportAllPackages",
+    "onCommand:dart-exports.addExportListener",
+    "onCommand:dart-exports.removeExportListener"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "dart-exports.exportAllPackages",
+          "group": "1_modification"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "dart-exports.addExportListener",
+          "group": "1_modification"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "dart-exports.removeExportListener",
+          "group": "1_modification"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "dart-exports.exportAllPackages",
+        "title": "Export All Packages"
+      },
+      {
+        "command": "dart-exports.addExportListener",
+        "title": "Add Listener to Folder"
+      },
+      {
+        "command": "dart-exports.removeExportListener",
+        "title": "Remove Listener from Folder"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.49.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^14.0.27",
+    "eslint": "^7.6.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.1.3",
+    "typescript": "^4.0.2",
+    "vscode-test": "^1.4.0"
+  }
+}
